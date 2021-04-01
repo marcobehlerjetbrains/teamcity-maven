@@ -32,6 +32,10 @@ version = "2020.2"
 project {
 
     buildType(Build)
+
+    params {
+        password("huhu", "credentialsJSON:acba4d4c-7bb1-4252-bd23-63643639c1b6", label = "qwewqeqw", display = ParameterDisplay.HIDDEN)
+    }
 }
 
 object Build : BuildType({
