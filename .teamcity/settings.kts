@@ -2,6 +2,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.PullRequests
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.pullRequests
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
@@ -49,6 +50,14 @@ object Build : BuildType({
         maven {
             goals = "clean test"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
+        }
+        dockerCommand {
+            commandType = build {
+                source = file {
+                    path = "Dockerfile"
+                }
+                commandArgs = "--pull"
+            }
         }
     }
 
