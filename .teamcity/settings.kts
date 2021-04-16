@@ -42,6 +42,10 @@ project {
 object Build : BuildType({
     name = "Build"
 
+    params {
+        param("DockerImagePostfix", "")
+    }
+
     vcs {
         root(DslContext.settingsRoot)
     }
