@@ -54,7 +54,7 @@ object Build : BuildType({
         dockerCommand {
             commandType = build {
                 source = file {
-                    path = "Dockerfile"
+                    path = "/"
                 }
                 commandArgs = "--pull"
             }
