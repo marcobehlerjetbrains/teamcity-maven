@@ -63,6 +63,15 @@ object Build : BuildType({
                 commandArgs = "--pull"
             }
         }
+        dockerCommand {
+            commandType = build {
+                source = file {
+                    path = "/"
+                }
+                namesAndTags = "myName-%DockerImagePostfix%:latest"
+                commandArgs = "--pull"
+            }
+        }
     }
 
     triggers {
